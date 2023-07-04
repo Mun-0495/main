@@ -6,6 +6,8 @@ plugins {
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
+//runtimeOnly = 'com.mysql:mysql-connector-j'
+
 
 java {
 	sourceCompatibility = '17'
@@ -27,7 +29,13 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	
+	/* 
+		1. 밑은 추가한 dependency입니다. 
+		2. MYSQL과 연동하기 위해 자바와 MYSQL을 연결시켜주는 dependency를 추가하였습니다.
+		3. Spring Data JPA를 연동하기 위한 Dependency를 추가하였습니다. 
+	*/
+	//implementation 'mysql:mysql-connector-java'
+	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 }
 
 tasks.named('test') {

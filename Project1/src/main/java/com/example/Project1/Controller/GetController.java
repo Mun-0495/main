@@ -9,6 +9,8 @@ import com.example.Project1.Model.SearchVO;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Map;
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/api")
@@ -24,6 +26,12 @@ public class GetController {
     @GetMapping("/getParameters")
     public String getParamters(@RequestParam String id, @RequestParam String email) {
         return id + email;
+    }
+
+    @GetMapping("/getParametersWithMap")
+    public String getParamtersWithMap(@RequestParam Map<String, Object> allParamaters) {
+        /* 내용... */
+        return "Success";
     }
 
     @GetMapping("/getMultiParameters") 

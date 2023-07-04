@@ -12,10 +12,10 @@ public class MainControllerDemo {
         return "index.html";
     }
 
-    @ResponseBody
+    /*@ResponseBody
     @RequestMapping(value = "/test")
     public String test() {
         String value = "test String";
         return value;
-    }
+    }*/
 }
