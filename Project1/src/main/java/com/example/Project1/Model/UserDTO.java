@@ -7,9 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SearchVO {
-    private String id;
+public class UserDTO {
+    private int id;
     private String email;
+    private String password;
     private String username;
-    private String page;
+    private String phone;
 }

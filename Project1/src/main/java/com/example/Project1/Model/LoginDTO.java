@@ -5,11 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class SearchVO {
-    private String id;
+@AllArgsConstructor
+public class LoginDTO {
     private String email;
-    private String username;
-    private String page;
+    private String password;
 }
