@@ -4,6 +4,8 @@ import java.sql.Date;
 
 import org.hibernate.annotations.DialectOverride.GeneratedColumn;
 
+import com.example.Project1.Model.BoardDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -38,5 +40,14 @@ public class BoardEntity {
 
     @Column
     private int view;
+
+    public static BoardEntity toBoardEntity(BoardDTO boardDTO) {
+        BoardEntity boardEntity = new BoardEntity();
+        boardEntity.setTitle(boardDTO.getTitle());
+        boardEntity.setBody(boardDTO.getBody());
+        boardEntity.setUSER(boardDTO.getUser());
+
+        return boardEntity;
+    }
     
 }

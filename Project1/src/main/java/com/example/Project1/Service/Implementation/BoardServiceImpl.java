@@ -1,27 +1,39 @@
 package com.example.Project1.Service.Implementation;
 
+import org.springframework.data.convert.ReadingConverter;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
+import com.example.Project1.Entity.BoardEntity;
 import com.example.Project1.Model.BoardDTO;
+import com.example.Project1.Repository.BoardRepository;
 import com.example.Project1.Service.Interface.BoardService;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class BoardServiceImpl implements BoardService {
     
-    //글을 씁니다. 
-    //이 글을 쓰는 공간은 빈 공간입니다.
-    //저장하기 버튼을 누르면 내가 쓰는 글의 내용이 그대로 리턴값으로 반환되어야 합니다.
-    //이때 제목과 본문을 함께 묶어서 보냅니다.
-    String write() {
+    private final BoardRepository boardRepository;
 
+    //제목과 본문, 그리고 유저 내용이 담긴 정보가 그대로 이쪽으로 전달됩니다.
+    //boardEntity에 저장을 해주고, 이걸 레퍼지토리의 save메소드를 저장합시다.
+    //기존 디비에 내용을 추가하게 됩니다. 리턴값이 딱히 필요 없으므로 void로 지정합니다.
+    public void update(BoardDTO boardDTO) {
+        BoardEntity boardEntity = BoardEntity.toBoardEntity(boardDTO);
+        boardEntity.setDatetime(null); //현재 시간을 등록해줍니다.
+        boardEntity.setView(0);
+        boardRepository.save(boardEntity);
     }
 
-    //글을 수정합니다.
-    //이 글을 쓰는 공간엔 기존엔 썼던 글이 그대로 남아있어야 합니다.
-    //저장하기 버튼을 누르면 새롭게 수정한 내용이 다시 리턴값으로 반환됩니다.
-    //제목은 수정할 수 없습니다.
-    String modify(@ModelAttribute BoardDTO board) {
+    
+    //다시 제목과 본문, 그리고 유저 내용이 담긴 정보가 전달됩니다.
+    //boardEntity에서 똑같은 이름을 지닌 사용자를 찾아서 기존 디비에서 수정해줍니다.
+    //수정할 때 작성 시간 또한 변경되어야 하며, 유저 정보, 조회수는 변경되지 않습니다.
+    //마찬가지로 딱히 리턴타입이 필요없으므로 void로 지정합니다.
+    public void modify(BoardDTO boardDTO) {
 
     }
 }
