@@ -1,6 +1,5 @@
 package com.example.Project1.Service.Implementation;
 
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.stereotype.Service;
 
 import com.example.Project1.Repository.UserRepository;
@@ -23,7 +22,11 @@ public class SignupServiceImpl implements SignupService {
     public boolean check(SignupDTO signupDTO) {
         if(userRepository.findByUsername(signupDTO.getUsername()) != null &&
         userRepository.findByEmail(signupDTO.getEmail()) != null && 
-        userRepository.findByPhone(signupDTO.getPhone()) != null) return false;
+        userRepository.findByPhone(signupDTO.getPhone()) != null) 
+            return false;
+        
+        else if(! signupDTO.getPassword().equals(signupDTO.getPassword_check())) 
+            return false;
         
         userEntity = UserEntity.toUserEntity(signupDTO);
         return true;

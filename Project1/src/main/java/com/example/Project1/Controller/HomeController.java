@@ -15,12 +15,6 @@ public class HomeController {
     //     return "index.html";
     // }
 
-    @RequestMapping("/autorized")
-    public String homepage() {
-        return "home.html";
-    }
-
-
     //홈 화면입니다.
     //로그인 버튼과 게시글이 있어야 합니다.
     //프론트에서 로그인 된 상황과 로그아웃된 상황을 보여줘야 합니다.
@@ -34,10 +28,4 @@ public class HomeController {
         return "board.html";
     }
     
-    //middle ware
-    //이 미들웨어를 거쳐야 합니다.
-    //세션을 확인했을 때 현재 세션의 정보가 아무것도 없다면 게스트 정보를 넣어줍니다.
-    //세션의 정보가 변경되었다면 그 세션의 정보를 유지해줍니다.
-    
-
 }

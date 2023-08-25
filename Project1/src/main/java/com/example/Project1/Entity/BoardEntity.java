@@ -2,8 +2,6 @@ package com.example.Project1.Entity;
 
 import java.sql.Date;
 
-import org.hibernate.annotations.DialectOverride.GeneratedColumn;
-
 import com.example.Project1.Model.BoardDTO;
 
 import jakarta.persistence.Column;
@@ -27,7 +25,7 @@ public class BoardEntity {
     private int id;
     
     @Column
-    private String USER;
+    private String user;
 
     @Column
     private String title;
@@ -36,7 +34,7 @@ public class BoardEntity {
     private String body;
 
     @Column
-    private Date datetime;
+    private Date date;
 
     @Column
     private int view;
@@ -45,7 +43,7 @@ public class BoardEntity {
         BoardEntity boardEntity = new BoardEntity();
         boardEntity.setTitle(boardDTO.getTitle());
         boardEntity.setBody(boardDTO.getBody());
-        boardEntity.setUSER(boardDTO.getUser());
+        boardEntity.setUser(boardDTO.getUser());
 
         return boardEntity;
     }

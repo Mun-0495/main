@@ -3,7 +3,6 @@ package com.example.Project1.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.Project1.Entity.UserEntity;
-import java.util.List;
 
 
 //Repository는 쿼리를 특정 문자들의 조합으로 간단하게 쓸 수 있는 인터페이스입니다.

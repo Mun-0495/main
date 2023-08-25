@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.Project1.Service.Interface.LoginService;
 import com.example.Project1.Service.Interface.SignupService;
-import com.example.Project1.Model.LoginDTO;
 
 import jakarta.servlet.http.HttpSession;
+
+import com.example.Project1.Model.LoginDTO;
 
 import com.example.Project1.Model.SignupDTO;
 
@@ -54,7 +55,8 @@ public class UserController {
     }
 
     @GetMapping(value="/login")
-    public String loginForm() {
+    public String loginForm(@ModelAttribute HttpSession httpSession) {
+        //로그인 할 때 세션을 체크합니다.
         return "login.html";
     }
 
@@ -63,12 +65,12 @@ public class UserController {
     //포스트 맵핑으로 데이터를 받아오면, 그 데이터를 기반으로 로그인을 진행합니다.
     //이떄 데이터는 loginDTO의 객체를 받아옵니다.
     //로그인 후에 세션을 저장해줍니다.
-    //만약 로구인이 실패했다면 다시 로그인 화면으로 돌아갑니다.
+    //만약 로그인이 실패했다면 다시 로그인 화면으로 돌아갑니다.
     @PostMapping(value = "/login")
     public String login(@ModelAttribute LoginDTO loginDTO, HttpSession httpSession) {
-        if(loginService.login(loginDTO)) {
-            httpSession.setAttribute("USER", loginDTO.getUser()); //login session 할당.
-            httpSession.setMaxInactiveInterval(600);
+        String status = loginService.login(loginDTO);
+        if(status != null) {
+            httpSession.setAttribute("USER", status);
             System.out.println("현재 유저 " + httpSession.getAttribute("USER"));
             return "/home";
         }

@@ -1,0 +1,76 @@
+<!-- 
+    제목 | 글 제목 | 유저 | 최근 수정된 시간(년월일) | 조회수
+
+    1. 글 제목과 제목에는 전부 하이퍼링크가 되어있어야 합니다.
+
+    2. 글쓰기 버튼이 있어야 합니다.
+
+    3. 글쓰기 버튼은 글을 쓰는 공간으로 하이퍼링크가 되어있어야 합니다.
+    이때, 유저의 상태가 GUEST라면 로그인 페이지로 가야합니다.
+
+    4. 자기가 작성한 글(즉 유저가 작성한 글)로 들어간 경우엔 수정하기 버튼이 있어야 합니다.
+
+    5. 그렇지 않은 경우엔 수정하기 버튼이 숨겨져야 합니다.
+
+    6. 조회수는 조금 더 찾아보겠습니다.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        .board {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .board th, .board td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .board th {
+            background-color: #f2f2f2;
+        }
+        .board tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .form-container {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>게시판</h1>
+
+        <table class="board">
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>첫 번째 게시물</td>
+                <td>사용자1</td>
+                <td>2023-08-25</td>
+            </tr>
+            <!-- 다른 게시물들도 추가 -->
+        </table>
+    </div>
+</body>
+</html>
