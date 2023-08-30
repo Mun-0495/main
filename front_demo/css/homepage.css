@@ -1,0 +1,39 @@
+body { 
+    margin: 0;
+}
+
+.header {
+    margin: 0;
+    display: flex;
+}
+
+.header h1 {
+    width: 95%;
+    float: left;
+    background-color: white;
+}
+
+.header li {
+    width: 5%;
+    background-color:rgb(40, 255, 183);
+    list-style-type: none;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.header li a {
+    padding:auto;
+    text-align: center;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.header li:hover{
+    background-color: #333;
+}
+
+.menu #home{
+    background-color: rgb(40, 255, 183);
+}
